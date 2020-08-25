@@ -32,7 +32,7 @@ String s1="";
 String s2="";
 int status = WL_IDLE_STATUS;
 
-char server[] = "http://travel-536c3.uc.r.appspot.com";    // name address for Google (using DNS)
+char server[] = "your server s url";    // name address for Google (using DNS)
 
 // Initialize the Ethernet client library
 // with the IP address and port of the server
