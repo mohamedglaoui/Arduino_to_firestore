@@ -44,17 +44,6 @@ void setup() {
   Serial.println("Connected to wifi");
   printWiFiStatus();
 
-  Serial.println("\nStarting connection to server...");
-  // if you get a connection, report back via serial
-  //to check your connection with the server.
-  if (client.connect(server, 80)) {
-    Serial.println("connected to server");
-    // Make a HTTP request:
-    client.println("GET "your server s url"/?name1005=name2 HTTP/1.1");
- 
-    client.println("Connection: close");
-    client.println();
-  }
 }
 
 void loop() {
