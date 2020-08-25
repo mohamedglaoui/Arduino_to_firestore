@@ -24,16 +24,14 @@
 #include <WiFi101.h>
 
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
-char ssid[] = "ALSamer_2G";        // your network SSID (name)
-char pass[] = "01020304";    // your network password (use for WPA, or use as key for WEP)
+char ssid[] = "your SECRET_SSID";        // your network SSID (name)
+char pass[] = "your SECRET_PASS";    // your network password (use for WPA, or use as key for WEP)
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
 String s="";
 String s1="";
 String s2="";
 int status = WL_IDLE_STATUS;
-// if you don't want to use DNS (and reduce your sketch size)
-// use the numeric IP instead of the name for the server:
-//IPAddress server(74,125,232,128);  // numeric IP for Google (no DNS)
+
 char server[] = "http://travel-536c3.uc.r.appspot.com";    // name address for Google (using DNS)
 
 // Initialize the Ethernet client library
@@ -62,18 +60,19 @@ void setup() {
     // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
     status = WiFi.begin(ssid, pass);
 
-    // wait 10 seconds for connection:
+    // wait 5 seconds for connection:
     delay(5000);
   }
   Serial.println("Connected to wifi");
   printWiFiStatus();
 
   Serial.println("\nStarting connection to server...");
-  // if you get a connection, report back via serial:
+  // if you get a connection, report back via serial
+  //to check your connection with the server.
   if (client.connect(server, 80)) {
     Serial.println("connected to server");
     // Make a HTTP request:
-    client.println("GET http://travel-536c3.uc.r.appspot.com/?name1005=name2 HTTP/1.1");
+    client.println("GET "your server s url"/?name1005=name2 HTTP/1.1");
  
     client.println("Connection: close");
     client.println();
@@ -102,7 +101,7 @@ s1=Serial.readStringUntil('#');
       
           s1=s1.substring(1,s1.length()) ;
           s2=s2.substring(1,s2.length()) ;
-          s="GET http://travel-536c3.uc.r.appspot.com/?write=";
+          s="GET "your server s url"/?write=";
           s += s1+"=";
           s += s2+" HTTP/1.1"; 
       Serial.println("Connected to firestore");
@@ -123,7 +122,7 @@ s1=Serial.readStringUntil('#');
     
       
           
-s="GET http://travel-536c3.uc.r.appspot.com/?read=mohamed=glaoui HTTP/1.1";
+s="GET "your server s url"/?read=mohamed=glaoui HTTP/1.1";
 
       Serial.println("Connected to firestore");
    
