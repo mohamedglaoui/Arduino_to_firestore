@@ -1,25 +1,3 @@
-/*
-  Web client
-
- This sketch connects to a website (http://www.google.com)
- using a WiFi shield.
-
- This example is written for a network using WPA encryption. For
- WEP or WPA, change the WiFi.begin() call accordingly.
-
- This example is written for a network using WPA encryption. For
- WEP or WPA, change the WiFi.begin() call accordingly.
-
- Circuit:
- * WiFi shield attached
-
- created 13 July 2010
- by dlf (Metodo2 srl)
- modified 31 May 2012
- by Tom Igoe
- */
-
-
 #include <SPI.h>
 #include <WiFi101.h>
 
@@ -32,7 +10,7 @@ String s1="";
 String s2="";
 int status = WL_IDLE_STATUS;
 
-char server[] = "your server s url";    // name address for Google (using DNS)
+char server[] = "your server s url";  //from google cloud
 
 // Initialize the Ethernet client library
 // with the IP address and port of the server
@@ -80,9 +58,11 @@ void setup() {
 }
 
 void loop() {
+  // to empty the serial buffer
     while(Serial.available() > 0) {
     char t = Serial.read();
   }
+  
   Serial.setTimeout(20000L) ;     // wait until 20 seconds for input from serial
   // Ask personal data: Family name
     Serial.println(F("Type action to do #"));
