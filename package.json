@@ -18,11 +18,11 @@
   },
   "dependencies": {
     "express": "^4.16.3",
- "firebase-admin": "^5.4.0",
+ "firebase-admin": "^9.3.0",
   "firebase-functions": "^0.7.0"
   },
   "devDependencies": {
-    "mocha": "^12.16.3",
+    "mocha": "^8.2.0",
     "supertest": "^4.0.2"
   }
 }
